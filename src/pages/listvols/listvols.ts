@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FlightService } from '../../services/flights.service';
+import { SingleFlightPage } from '../single-flight/single-flight';
 
 /**
  * Generated class for the ListvolsPage page.
@@ -14,11 +16,24 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ListvolsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  flightList: any[];
+
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public flightsService: FlightService
+            ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListvolsPage');
+    this.flightList = this.flightsService.flightsList;
   }
+
+  onLoadFlight(i: number) {
+
+    this.navCtrl.push(SingleFlightPage, { indexDuVol: i })
+  }
+
+  
 
 }

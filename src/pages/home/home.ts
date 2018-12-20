@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ListvolsPage } from '../listvols/listvols';
+import { FlightService } from '../../services/flights.service';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,12 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  lienVerslistvols = ListvolsPage;
 
-  }
+  constructor(private flightsService: FlightService) {}
+
+
+
+
 
 }
